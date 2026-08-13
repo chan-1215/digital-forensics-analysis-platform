@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Email Analysis{% endblock %}
+{% block content %}
+<h2>EML Email Analysis</h2>
+<form method="post" enctype="multipart/form-data"><input type="file" name="file" accept=".eml" required><button>Analyze</button></form>
+{% if result %}<section class="result"><h3>{{ filename }}</h3><p><strong>From:</strong> {{ result.from }}</p><p><strong>To:</strong> {{ result.to }}</p><p><strong>Cc:</strong> {{ result.cc }}</p><p><strong>Subject:</strong> {{ result.subject }}</p><p><strong>Date:</strong> {{ result.date }}</p><p><strong>Message-ID:</strong> {{ result.message_id }}</p><h4>Body</h4><pre>{{ result.body }}</pre><h4>Attachments</h4>{% if result.attachments %}<ul>{% for item in result.attachments %}<li>{{ item.filename }} · {{ item.content_type }} · {{ item.size }} bytes</li>{% endfor %}</ul>{% else %}<p>첨부파일 없음</p>{% endif %}</section>{% endif %}
+{% endblock %}
