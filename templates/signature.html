@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Signature Analysis{% endblock %}
+{% block content %}
+<h2>File Signature Analysis</h2>
+<form method="post" enctype="multipart/form-data"><input type="file" name="file" required><button>Analyze</button></form>
+{% if result %}<section class="result"><h3>{{ filename }}</h3><p><strong>Detected:</strong> {{ result.matches|join(', ') }}</p><p><strong>Header</strong><br><code>{{ result.header_hex }}</code></p></section>{% endif %}
+{% endblock %}
