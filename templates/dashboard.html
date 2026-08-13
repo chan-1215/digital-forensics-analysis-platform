@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Forensics Dashboard{% endblock %}
+{% block content %}
+<h2>Digital Forensics Analysis Platform</h2>
+<p>분석 기능을 선택하고 파일을 업로드하면 서버에서 처리한 결과를 웹 화면에서 확인할 수 있습니다.</p>
+<div class="grid">
+  <a class="card" href="{{ url_for('hash_analysis') }}"><strong>Hash Analysis</strong><span>MD5 / SHA1 / SHA256</span></a>
+  <a class="card" href="{{ url_for('gps_analysis') }}"><strong>Photo GPS</strong><span>EXIF 위치 정보 추출</span></a>
+  <a class="card" href="{{ url_for('signature_analysis') }}"><strong>Signature Analysis</strong><span>파일 헤더 기반 형식 판별</span></a>
+  <a class="card" href="{{ url_for('email_analysis') }}"><strong>Email Analysis</strong><span>.eml 헤더 / 본문 / 첨부파일</span></a>
+  <a class="card" href="{{ url_for('metadata_analysis') }}"><strong>Metadata</strong><span>이미지 속성 및 EXIF</span></a>
+  <a class="card" href="{{ url_for('carving_analysis') }}"><strong>File Carving</strong><span>내부 파일 시그니처 위치 탐색</span></a>
+</div>
+{% endblock %}
