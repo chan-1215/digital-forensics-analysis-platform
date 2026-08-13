@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Hash Analysis{% endblock %}
+{% block content %}
+<h2>Hash Analysis</h2>
+<form method="post" enctype="multipart/form-data"><input type="file" name="file" required><button>Analyze</button></form>
+{% if result %}<section class="result"><h3>{{ filename }}</h3>{% for key, value in result.items() %}<p><strong>{{ key }}</strong><br><code>{{ value }}</code></p>{% endfor %}</section>{% endif %}
+{% endblock %}
