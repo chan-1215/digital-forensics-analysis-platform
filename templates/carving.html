@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}File Carving{% endblock %}
+{% block content %}
+<h2>File Carving Signature Scan</h2>
+<form method="post" enctype="multipart/form-data"><input type="file" name="file" required><button>Analyze</button></form>
+{% if result is not none %}<section class="result"><h3>{{ filename }}</h3>{% if result %}<table><tr><th>Type</th><th>Offset</th></tr>{% for item in result %}<tr><td>{{ item.type }}</td><td>{{ item.offset }}</td></tr>{% endfor %}</table>{% else %}<p>알려진 시그니처를 찾지 못했습니다.</p>{% endif %}</section>{% endif %}
+{% endblock %}
