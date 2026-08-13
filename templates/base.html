@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Forensics Site{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <h1>Forensics Site</h1>
+    <nav>
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('hash_analysis') }}">Hash Analysis</a>
+      <a href="{{ url_for('gps_analysis') }}">Photo GPS</a>
+      <a href="{{ url_for('signature_analysis') }}">Signature</a>
+      <a href="{{ url_for('email_analysis') }}">Email</a>
+      <a href="{{ url_for('metadata_analysis') }}">Metadata</a>
+      <a href="{{ url_for('carving_analysis') }}">File Carving</a>
+    </nav>
+  </aside>
+  <main class="content">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
