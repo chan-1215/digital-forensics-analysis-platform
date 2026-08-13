@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Metadata Analysis{% endblock %}
+{% block content %}
+<h2>Image Metadata Analysis</h2>
+<form method="post" enctype="multipart/form-data"><input type="file" name="file" accept="image/*" required><button>Analyze</button></form>
+{% if result %}<section class="result"><h3>{{ filename }}</h3><p>Format: {{ result.format }}</p><p>Mode: {{ result.mode }}</p><p>Size: {{ result.width }} × {{ result.height }}</p><h4>EXIF</h4>{% if result.exif %}<table>{% for key, value in result.exif.items() %}<tr><th>{{ key }}</th><td>{{ value }}</td></tr>{% endfor %}</table>{% else %}<p>EXIF 정보 없음</p>{% endif %}</section>{% endif %}
+{% endblock %}
